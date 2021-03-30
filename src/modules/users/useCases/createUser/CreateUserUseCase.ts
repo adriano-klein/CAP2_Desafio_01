@@ -22,8 +22,6 @@ class CreateUserUseCase {
       name,
     });
 
-    console.log(this.usersRepository);
-
     return user
     
   }

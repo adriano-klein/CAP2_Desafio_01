@@ -15,8 +15,7 @@ class ShowUserProfileUseCase {
       throw new Error("User not found");
     }
 
-    const user = this.usersRepository.findById(user_id)
-    console.log(user)
+    const user = this.usersRepository.findById(user_id);
 
     return user;
   }
