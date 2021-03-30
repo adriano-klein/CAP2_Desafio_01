@@ -1,0 +1,111 @@
+{
+  "openapi":"3.0.0",
+  "info": {
+    "title": "Desafio 01 do capítulo 2 - Ignite",
+    "description": "Desafio 1 do Ignite referente ao capítulo 2 - Rocketseat",
+    "version":"1.0.0",
+    "contact": "adriano25klein@gmail.com"
+  },
+  "paths":{
+    "/users":{
+      "post":{
+        "tags": ["Users"],
+        "summary":"Cria um usuário",
+        "description": "Cria um novo usuário na aplicação",
+        "requestBody": {
+          "required": true,
+          "description": "Campos obrigatórios para criação de um usuário",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "admin": {
+                    "type": "boolean"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "created_at": {
+                    "type": "string"
+                  },
+                  "updated_at": {
+                    "type": "string"
+                  }
+                },
+                
+                "example": {
+                  "name": "example name",
+                  "email": "example@email.com"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Operação realizada com sucesso",
+            "content": {
+              "application/json": {
+                "schema":{
+                  "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "admin": {
+                        "type": "boolean"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                  },
+                  "example": {
+                    "id": "361c45e3-865e-46b1-8e4e-ba8794d77a61",
+                    "admin": false,
+                    "name": "Adriano Klein",
+                    "email": "adriano25klein@gmaill.com",
+                    "created_at": "2021-03-30T02:27:34.576Z",
+                    "updated_at": "2021-03-30T02:27:34.576Z"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "User already exists",
+            "content": {
+              "application.json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "error": "User already exists"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
